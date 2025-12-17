@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>온라인 책꽂이 - 내가 읽은 문학 작품집</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font: Jua (동글동글 감성 폰트) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --brown-main: #5b3b22;
+      --brown-soft: #8b5a3c;
+      --cream-bg: #fff7ec;
+      --ink-black: #222;
+    }
+
+    body {
+      padding-top: 70px;
+      background-image: url("img/hanok-bg.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      font-family: "Jua", sans-serif;
+      color: var(--ink-black);
+    }
+
+    /* 배경 눌림 효과 */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: -1;
+    }
+
+    /* 네비게이션 */
+    .navbar {
+      background: rgba(50, 32, 18, 0.95) !important;
+      backdrop-filter: blur(6px);
+    }
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+      color: #fbeee0 !important;
+    }
+    .navbar .nav-link.active,
+    .navbar .nav-link:hover {
+      color: #ffe1b3 !important;
+    }
+
+    .title-main {
+      font-size: 2.5rem;
+      color: #fdf8f2;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+    }
+
+    .subtitle {
+      color: #fbeee0;
+      font-size: 1.05rem;
+    }
+
+    .section-box {
+      background: rgba(255, 247, 236, 0.95);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    /* 카드 */
+    .lit-card {
+      background: rgba(255, 247, 236, 0.98);
+      border-radius: 16px;
+      border: 1px solid rgba(139, 90, 60, 0.25);
+      text-align: center;
+      padding-bottom: 1.2rem;
+    }
+
+    /* 이미지 원본 유지 */
+    .lit-card img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      border-radius: 16px 16px 0 0;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* 텍스트 */
+    .lit-card h5 {
+      color: var(--brown-main);
+      margin-top: 0.8rem;
+    }
+
+    .lit-card p {
+      color: #725647;
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      background: rgba(32, 19, 10, 0.96);
+      padding: 1.2rem 0;
+      text-align: center;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <div class="overlay"></div>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="home.html">온라인 책꽂이</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="fiber.html">문학</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="py-5">
+    <div class="container">
+      <h1 class="title-main fw-bold mb-2">내가 읽은 문학 작품집</h1>
+      <p class="subtitle mb-4">읽어낸 문장들, 나만의 온도로 정리한 기록 </p>
+
+      <div class="section-box">
+        <div class="row g-4">
+
+          <!-- 작품 1 -->
+          <div class="col-md-4">
+            <div class="lit-card">
+              <img src="img/m.png" alt="습기">
+              <h5>습기</h5>
+              <p>“왜 우리집에 부적을 놓고 갔을까?”</p>
+            </div>
+          </div>
+
+          <!-- 작품 2 -->
+          <div class="col-md-4">
+            <div class="lit-card">
+              <img src="img/mm.png" alt="스무살">
+              <h5>스무살</h5>
+              <p>“방황하는 우리들을 위해”</p>
+            </div>
+          </div>
+
+          <!-- 작품 3 -->
+          <div class="col-md-4">
+            <div class="lit-card">
+              <img src="img/mmm.png" alt="시한부">
+              <h5>시한부</h5>
+              <p>“스스로 마지막날을 정한 삶도 시한부일까?”</p>
+            </div>
+          </div>
+
+          <!-- 작품 4 -->
+          <div class="col-md-4">
+            <div class="lit-card">
+              <img src="img/mp.png" alt="우리가 겨울을 지나온 방식">
+              <h5>우리가 겨울을 지나온 방식</h5>
+              <p>“겨울이 아무리 추울지라도”</p>
+            </div>
+          </div>
+
+          <!-- 작품 5 -->
+          <div class="col-md-4">
+            <div class="lit-card">
+              <img src="img/mpp.png" alt="첫 여름, 완주">
+              <h5>첫 여름, 완주</h5>
+              <p>“각자의 몫을 완주하는 우리의 여름”</p>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="text-muted mt-4"> 계속 업데이트 예정...</p>
+
+        <div class="text-end">
+          <a href="#top" class="text-light small">Top ↑</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+ 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

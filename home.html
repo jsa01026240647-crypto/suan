@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>온라인 책꽂이 - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font: Jua (동글동글 감성 폰트) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --brown-main: #5b3b22;   /* 진한 갈색 */
+      --brown-soft: #8b5a3c;   /* 부드러운 갈색 */
+      --cream-bg: #fff7ec;     /* 따뜻한 크림색 */
+      --ink-black: #222222;    /* 글자용 진한 검정 */
+    }
+
+    * {
+      font-family: "Jua", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      padding-top: 70px; /* 고정 네비바 여백 */
+      background-image: url("img/hanok-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--ink-black);
+    }
+
+    /* 배경 위에 전체적으로 따뜻한 오버레이 깔기 */
+    .page-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: -1;
+    }
+
+    /* 네비게이션 바 */
+    .navbar {
+      background: rgba(50, 32, 18, 0.95) !important; /* 진한 갈색+검정 느낌 */
+      backdrop-filter: blur(6px);
+    }
+
+    .navbar-brand {
+      letter-spacing: 1px;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: #fbeee0;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover,
+    .navbar-dark .navbar-nav .nav-link:focus {
+      color: #ffe1b3;
+    }
+
+    /* 헤더(히어로) 섹션 */
+    header {
+      background: rgba(255, 247, 236, 0.92);
+      border-bottom: 1px solid rgba(139, 90, 60, 0.3);
+    }
+
+    header .display-4 {
+      color: var(--brown-main);
+    }
+
+    header p {
+      color: #6c4f3b;
+      white-space: pre-line;
+    }
+
+    /* 메인 섹션 공통 카드 느낌 */
+    .section-card {
+      background: rgba(255, 247, 236, 0.96);
+      border-radius: 18px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    /* 프로필 이미지 */
+    .profile-img {
+      border-radius: 20px;
+      border: 3px solid rgba(139, 90, 60, 0.4);
+    }
+
+    /* 섹션 제목 */
+    h2.section-title {
+      color: #fdf8f2;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    /* 버튼 스타일 갈색 계열 */
+    .btn-brown {
+      background-color: var(--brown-main);
+      border-color: var(--brown-main);
+      color: #fdf8f2;
+      border-radius: 999px;
+      padding-inline: 1.8rem;
+      padding-block: 0.6rem;
+    }
+
+    .btn-brown:hover {
+      background-color: var(--brown-soft);
+      border-color: var(--brown-soft);
+      color: #fffdf7;
+    }
+
+    .btn-outline-brown {
+      border-radius: 999px;
+      border-color: var(--brown-main);
+      color: var(--brown-main);
+    }
+
+    .btn-outline-brown:hover {
+      background-color: var(--brown-main);
+      color: #fffaf1;
+    }
+
+    /* 카테고리 카드 */
+    .book-card {
+      background: rgba(255, 247, 236, 0.97);
+      border-radius: 16px;
+      border: 1px solid rgba(139, 90, 60, 0.25);
+    }
+
+    .book-card .card-title {
+      color: var(--brown-main);
+    }
+
+    .book-card .card-text {
+      color: #725647;
+    }
+
+    /* 🔹 여기서부터 카드 이미지 크기 통일 설정 */
+    .card-img-top {
+      width: 2cm;           /* 가로 2cm */
+      height: 2cm;          /* 세로 2cm */
+      object-fit: cover;    /* 비율 유지하면서 정사각형 안에 꽉 차게 */
+      border-radius: 12px;  /* 살짝 둥근 모서리 */
+      display: block;
+      margin: 1rem auto 0;  /* 카드 상단에서 약간 아래 + 가운데 정렬 */
+    }
+
+    /* 푸터 */
+    footer {
+      background: rgba(32, 19, 10, 0.96);
+      font-size: 0.9rem;
+    }
+
+    /* 작은 화면에서 여백 조금 줄이기 */
+    @media (max-width: 576px) {
+      .section-card {
+        padding: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 배경 오버레이 -->
+  <div class="page-overlay"></div>
+
+  <!-- 네비게이션 바 -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="home.html">온라인 책꽂이</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#bookTaste">책 취향 소개</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#categories">카테고리</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="fiber.html">문학</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ceramic.html">비문학</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="digital.html">시</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 헤더 / 히어로 섹션 -->
+  <header class="py-5">
+    <div class="container">
+      <div class="row align-items-center g-4 section-card">
+        <div class="col-md-4 text-center">
+          <!-- 브랜드 로고 이미지 -->
+          <img src="img/dd.png" alt="logo" class="img-fluid" style="max-width: 220px;">
+        </div>
+        <div class="col-md-8">
+          <h1 class="display-4 fw-bold mb-3">온라인 책꽂이</h1>
+          <p class="mb-3">
+도서관에서 책을 빌려서 읽고 반납하고 나면 내가 그동안 무슨책을 읽었는지 기억이 잘 나지 않고, 책이 내손에 없어서 서운한 적이 많다. 그런 나를 위해 제작된 홈페이지.
+          </p>
+          <a href="#bookTaste" class="btn btn-brown btn-lg mt-2">책 취향 보러가기</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 책 취향 소개 섹션 -->
+  <section id="bookTaste" class="py-5">
+    <div class="container">
+      <h2 class="mb-4 fw-bold section-title"> 나의 책 취향 소개</h2>
+
+      <div class="row g-4 align-items-center section-card">
+        <div class="col-md-4 text-center">
+          <!-- 프로필 사진 -->
+          <img src="img/profile.jpg" alt="Profile" class="img-fluid profile-img shadow-sm">
+        </div>
+        <div class="col-md-8">
+          <h4 class="fw-bold mb-3" style="color: var(--brown-main);">책을 읽는 나의 방식</h4>
+
+          <p class="mb-3">
+            <strong>1. 소설 - 현실을 직면하게 하는 이야기</strong><br>
+            내가 좋아하는 소설은 화려한 판타지나 복잡한 세계관이 아니다. 오히려 내 주변에서 일어날 수 있는 이야기, 사람의 마음을 적나라하게 보여주는 작품에 더 끌린다.
+          </p>
+
+          <p class="mb-3">
+            <strong>2. 비문학 - 고민을 명확하게 해결해주는 내용</strong><br>
+            비문학 중에서도 나는 자기계발서를 가장 많이 읽는다. 무조건 의욕을 자극하는 책보다, 내가 하고 있는 고민을 구체적으로 다루고 실질적인 해결책을 제시하는 책을 선호한다.
+          </p>
+
+          <p class="mb-3">
+            <strong>3. 시 - 짧지만 오래 머무는 문장</strong><br>
+            시는 나에게 가장 느리고 가장 오래 머무는 장르다. 한 문장으로 하루를 생각할 수 있다는 점이 시의 가장 큰 매력이다.
+          </p>
+
+          <h6 class="fw-bold mt-4" style="color: var(--brown-main);">SNS</h6>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/iguana.9602616?igsh=OGpxdG1uNHh2NXd4&utm_source=qr" 
+                 class="btn btn-outline-brown btn-sm"
+                 target="_blank">
+                 Instagram
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 카테고리 섹션 -->
+  <section id="categories" class="py-5">
+    <div class="container">
+      <h2 class="mb-4 fw-bold section-title"> 카테고리</h2>
+
+      <div class="row g-4">
+
+        <!-- 문학 카드 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm book-card">
+            <img src="img/ss.jpg" class="card-img-top" alt="문학">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">문학</h5>
+              <p class="card-text flex-grow-1">
+                소설 · 이야기 기반 작품 모음
+              </p>
+              <a href="fiber.html" class="btn btn-brown mt-auto">바로가기</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 비문학 카드 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm book-card">
+            <img src="img/pp.jpg" class="card-img-top" alt="비문학">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">비문학</h5>
+              <p class="card-text flex-grow-1">
+                자기계발 · 논리 · 사고 확장
+              </p>
+              <a href="ceramic.html" class="btn btn-brown mt-auto">바로가기</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 시 카드 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm book-card">
+            <img src="img/sp.jpg" class="card-img-top" alt="시">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">시</h5>
+              <p class="card-text flex-grow-1">
+                문장과 여백의 감정 모음
+              </p>
+              <a href="digital.html" class="btn btn-brown mt-auto">바로가기</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-end mt-4">
+        <a href="#top" class="small text-light text-decoration-none">Top ↑</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
